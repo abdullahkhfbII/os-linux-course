@@ -1,6 +1,6 @@
 # Mock Final Exam — Practice Paper
 
-**Total: 100 marks | Time: 2 hours | Format based on the real Lab Test:
+**Total: 100 marks | Time: 1 hour | Format based on the real Lab Test:
 one theory question + one practical scenario answered as a single Bash
 script.**
 
@@ -24,7 +24,10 @@ script.**
 - Part B is worth 20 marks. Answer in your own words, in complete
   sentences. Command syntax alone, without explanation, earns no marks
   here — this part tests understanding, not recall.
-- Assume you have `sudo` privileges throughout.
+- Use `sudo` wherever a command genuinely requires elevated privileges
+  (creating users, editing `/etc/ssh/sshd_config`, managing the
+  firewall, etc.) — don't assume it's already been granted for you,
+  and don't add it to commands that don't actually need it.
 - Where a requirement doesn't specify an exact name/value, choose a
   reasonable one and state your assumption in a comment.
 
@@ -66,7 +69,7 @@ Write **one Bash script** that does the following, in this order:
 1. Inside `/novalab/shared_data`, create an empty script called
    `run_diagnostics.sh`.
 2. Make it executable.
-3. Configure it so that, whenever *any* lab member runs it, it executes
+3. Configure it so that, whenever _any_ lab member runs it, it executes
    with the permissions of the file's owner rather than their own.
 4. Explain, in a comment above this section, one realistic risk of
    configuring a script this way.
@@ -103,8 +106,7 @@ Write **one Bash script** that does the following, in this order:
 2. Configure SSH so that only members of `novalab_staff` may log in
    remotely, and `intern_sam` is explicitly denied, even if they were
    somehow later added to an allowed group.
-3. Configure the firewall so that only SSH (port 22) and HTTPS (port
-   443) traffic is accepted inbound, and every other unmatched inbound
+3. Configure the firewall so that only SSH (port 22) and HTTPS (port 443) traffic is accepted inbound, and every other unmatched inbound
    packet is dropped by default.
 
 ### A7. Supervised background processing (14 marks)
@@ -149,7 +151,7 @@ why the operating system doesn't just remove it immediately, and what
 specifically causes it to finally disappear.
 
 **B4.** Explain the difference between a **daemon** and a **cron job**
-in terms of *when* each one runs, and give one task from this exam
+in terms of _when_ each one runs, and give one task from this exam
 scenario that must be implemented as a cron job rather than a daemon,
 with a brief justification.
 
@@ -159,4 +161,4 @@ requirement from Part A6 as your example.
 
 ---
 
-*End of paper.*
+_End of paper._
