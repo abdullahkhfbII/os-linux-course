@@ -60,7 +60,7 @@ writing these yourself *before* looking at the provided solution.
 | 7 | `07-networking-advanced/` | `tcpdump` packet capture, `iptables` firewall | Lab 7 |
 | 8 | `08-multiprocessing/` | Processes, `ps`, `top`, background jobs, signals, `fork`/`exec`/`wait`, zombies | Lab 8 |
 | 9 | `09-advanced-permissions/` | UID/GID, SUID, SGID, Sticky Bit, real vs effective UID | Lab 9 |
-| 10 | `10-exam-practice/` | Every scenario question from every lab, plus the two revision documents, solved as individual bash files | Lab Test 1, Lab Test 2, revision docs |
+| 10 | `10-exam-practice/` | Every scenario question from every lab, plus the two revision documents, solved as individual bash files, **plus a full 100-mark mock final exam** (`10-exam-practice/mock-final-exam/`) built harder than the real one on purpose | Lab Test 1, Lab Test 2, revision docs |
 
 Every numbered folder builds on the ones before it — later topics (cron,
 networking, processes, advanced permissions) constantly reuse commands from

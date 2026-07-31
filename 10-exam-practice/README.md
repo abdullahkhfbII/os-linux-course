@@ -71,6 +71,13 @@ touching almost every module in the course at once.
 | `q4_remote_dev_team_maintenance.sh` | Modules 3 + 5 |
 | `q5_bakery_recipes_and_orders.sh` | Modules 2 + 3 + 5 |
 
+### `mock-final-exam/`
+
+A single full-length practice paper matching the real Lab Test's reported
+format (100 marks: 80 for one two-page practical script, 20 for a theory
+question) — but intentionally tougher, since it's meant to make the real
+exam feel easy by comparison. See below for details.
+
 ## A note on realism
 
 Some solutions below use placeholder paths or usernames (e.g.
@@ -82,5 +89,23 @@ character, or referencing a variable/file from a different scenario by
 mistake); where a scenario's original answer had a clear error, this
 version corrects it and adds a note explaining the fix, so you don't learn
 the mistake along with the concept.
+
+### `mock-final-exam/`
+
+The real Lab Test is reported to be a two-page single script worth 80
+marks, plus one 20-mark theory question based on the labs, for 100 marks
+total. `mock-final-exam/` is a full practice paper built to that same
+format — **but deliberately harder**, pulling in almost every module in
+one long scenario instead of the handful a real paper would combine, so
+that the actual exam feels shorter and easier by comparison once you can
+handle this one within the time limit.
+
+- [`exam_paper.md`](mock-final-exam/exam_paper.md) — the paper itself.
+  Attempt it for real, under a timer, before looking at anything else.
+- [`model_solution.sh`](mock-final-exam/model_solution.sh) — the model
+  answer to the practical part, commented section-by-section to match the
+  paper.
+- [`theory_model_answers.md`](mock-final-exam/theory_model_answers.md) —
+  model answers to the theory question.
 
 Good luck.
