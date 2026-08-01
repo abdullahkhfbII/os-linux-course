@@ -42,7 +42,7 @@ supervision for the lab, all from a single setup script.
 
 Write **one Bash script** that does the following, in this order:
 
-### A1. Users and groups (10 marks)
+### A1. Users and groups (11 marks)
 
 1. Create a group called `novalab_staff`.
 2. Create two users, `dr_amir` and `dr_lina`, and add both to
@@ -51,6 +51,9 @@ Write **one Bash script** that does the following, in this order:
 4. Set `intern_sam`'s account to expire automatically 90 days from
    today, and force a password change every 14 days with a 3-day
    warning beforehand.
+5. Using one command, print `dr_amir`'s numeric UID, primary GID, and
+   every group they belong to, in a form that proves group membership
+   by ID number, not just by name.
 
 ### A2. Secure shared storage (12 marks)
 
@@ -69,12 +72,12 @@ Write **one Bash script** that does the following, in this order:
 1. Inside `/novalab/shared_data`, create an empty script called
    `run_diagnostics.sh`.
 2. Make it executable.
-3. Configure it so that, whenever _any_ lab member runs it, it executes
+3. Configure it so that, whenever *any* lab member runs it, it executes
    with the permissions of the file's owner rather than their own.
 4. Explain, in a comment above this section, one realistic risk of
    configuring a script this way.
 
-### A4. Scheduled backups and cleanup (14 marks)
+### A4. Scheduled backups and cleanup (12 marks)
 
 1. Write the logic (inside the same script, or generated as a
    sub-script via heredoc — your choice) to compress
@@ -99,17 +102,21 @@ Write **one Bash script** that does the following, in this order:
    (not every mounted filesystem), extract just its used-percentage
    value, and print a warning if it exceeds 80%.
 
-### A6. Network and remote access control (10 marks)
+### A6. Network and remote access control (12 marks)
 
 1. Display the lab server's current network interfaces and their
    assigned IP addresses.
 2. Configure SSH so that only members of `novalab_staff` may log in
    remotely, and `intern_sam` is explicitly denied, even if they were
    somehow later added to an allowed group.
-3. Configure the firewall so that only SSH (port 22) and HTTPS (port 443) traffic is accepted inbound, and every other unmatched inbound
+3. Configure the firewall so that only SSH (port 22) and HTTPS (port
+   443) traffic is accepted inbound, and every other unmatched inbound
    packet is dropped by default.
+4. Capture live packets on the server's primary network interface for
+   a short, fixed duration, and save the captured traffic to a file
+   for later inspection instead of printing it to the screen.
 
-### A7. Supervised background processing (14 marks)
+### A7. Supervised background processing (13 marks)
 
 NovaLab runs three overnight data-processing jobs that must be
 supervised by your script:
@@ -117,7 +124,8 @@ supervised by your script:
 1. Start three background processes representing these jobs (you may
    simulate each with an appropriately long `sleep`, since the real
    data-processing programs aren't available in this exam environment).
-2. Store all three PIDs in an array, and print the PID, parent PID, and
+2. Store all three PIDs in an array, then use a loop (not three
+   separate hardcoded commands) to print the PID, parent PID, and
    current state of each, proving they are children of your script.
 3. Midway through, pause the **first** job, confirm it is paused, then
    resume it and confirm it is running again.
@@ -151,7 +159,7 @@ why the operating system doesn't just remove it immediately, and what
 specifically causes it to finally disappear.
 
 **B4.** Explain the difference between a **daemon** and a **cron job**
-in terms of _when_ each one runs, and give one task from this exam
+in terms of *when* each one runs, and give one task from this exam
 scenario that must be implemented as a cron job rather than a daemon,
 with a brief justification.
 
@@ -161,4 +169,4 @@ requirement from Part A6 as your example.
 
 ---
 
-_End of paper._
+*End of paper.*

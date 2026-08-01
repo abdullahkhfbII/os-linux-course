@@ -29,6 +29,10 @@ sudo chage -E "$(date -d '+90 days' +%Y-%m-%d)" intern_sam
 sudo chage -M 14 intern_sam
 sudo chage -W 3 intern_sam
 
+# Prove group membership by NUMERIC ID, not just by name -- "id"
+# reports UID, primary GID, and every supplementary group's GID.
+id dr_amir
+
 # ------------------------------------------------------------
 # A2. Secure shared storage (12 marks)
 # ------------------------------------------------------------
@@ -156,6 +160,13 @@ sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 sudo iptables -P INPUT DROP
 
+# Capture live packets on the primary interface for a short, fixed
+# duration and save them to a file instead of printing to the screen.
+# -i = interface, -w = write to file (raw capture, not text), and
+# "timeout" stops tcpdump automatically after 10 seconds so the
+# script doesn't hang waiting for it to be interrupted manually.
+sudo timeout 10 tcpdump -i eth0 -w /novalab/backups/traffic_capture_$(date +%F).pcap
+
 # ------------------------------------------------------------
 # A7. Supervised background processing (14 marks)
 # ------------------------------------------------------------
@@ -174,8 +185,11 @@ JOBS=("$JOB1" "$JOB2" "$JOB3")
 
 echo "Started jobs with PIDs: ${JOBS[@]}"
 
-# Prove parent-child relationship for all three at once.
-ps -o pid,ppid,stat,cmd -p "$JOB1","$JOB2","$JOB3"
+# Prove parent-child relationship for all three, using a LOOP over
+# the array rather than three separate hardcoded ps commands.
+for job_pid in "${JOBS[@]}"; do
+    ps -o pid,ppid,stat,cmd -p "$job_pid"
+done
 
 # Pause and resume the FIRST job.
 kill -STOP "$JOB1"
