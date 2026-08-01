@@ -36,15 +36,16 @@ own `.sh` file**, formatted the same way a real test answer should look
 (shebang line, comments explaining each step, one command per line). Practice
 writing these yourself *before* looking at the provided solution.
 
-> **⚠ A note on scope:** this repository is a faithful, cleaned-up
-> reorganization of a specific lab course whose original materials were
-> not well-written — poorly ordered, missing prerequisite explanations,
-> and inconsistent in style. It's structured and explained as clearly as
-> possible given that source material, but it is **not** a general,
-> professionally designed "Operating Systems" course, and it isn't meant
-> to be one. It may get edited over time, and a few generally useful
-> topics might get folded in, but a proper, from-scratch OS course would
-> live in its own separate repository rather than here.
+> [!NOTE]
+> This repository is a faithful, cleaned-up reorganization of a specific
+> lab course whose original materials were not well-written — poorly
+> ordered, missing prerequisite explanations, and inconsistent in style.
+> It's structured and explained as clearly as possible given that source
+> material, but it is **not** a general, professionally designed
+> "Operating Systems" course, and it isn't meant to be one. It may get
+> edited over time, and a few generally useful topics might get folded
+> in, but a proper, from-scratch OS course would live in its own separate
+> repository rather than here.
 
 ## Suggested order (this is the whole course, start to finish)
 
